@@ -1,0 +1,33 @@
+<ion-content no-padding class="align">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10" class="align">
+        <form (ngSubmit)="loginTest()">
+            <ion-item no-padding>
+                <ion-icon name="person"></ion-icon>
+                <ion-input type="text" [(ngModel)]="user.id" name="user" placeholder="Nome Utente "  ></ion-input>
+            </ion-item>
+              <ion-item no-padding>
+                  <ion-icon name="person"></ion-icon>
+                  <ion-input type="text" [(ngModel)]="user.password" name="user" placeholder="Pasword"  ></ion-input>
+              </ion-item>
+         
+          <ion-button type="submit" expand="block" style="--background: rgb(49, 128, 219)!important;--background-activated: rgb(49, 128, 219); --background-hover:rgb(49, 128, 219);--background-focused:rgb(49, 128, 219);">Login</ion-button>
+ 
+        </form>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab vertical="center" horizontal="center" slot="fixed">
+    <ion-spinner [style.display]="displaySpinner" name="crescent"></ion-spinner>
+  </ion-fab>
+  <!--<ion-fab vertical="bottom" no-margin horizontal="end" slot="fixed">
+    <ion-fab-button color="warning" (touchstart)="fabDown()" (touchend)="fabUp()">
+      <ion-icon name="barcode"></ion-icon>
+    </ion-fab-button>
+
+
+  </ion-fab>
+-->
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button class="menuIcon"></ion-menu-button>
+        </ion-buttons>
+    <ion-title>NUOVA PREVENDITA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  class="align">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10" class="align">
+        <form (ngSubmit)="insert()">
+            <ion-item no-padding>
+               
+                <ion-input type="text" [(ngModel)]="person.name" name="name" placeholder="Nome"  ></ion-input>
+            </ion-item>
+            <ion-item no-padding>
+               
+              <ion-input type="text" [(ngModel)]="person.surname" name="surname" placeholder="Cognome"  ></ion-input>
+          </ion-item>
+          <ion-item no-padding>
+               
+            <ion-input type="text" [(ngModel)]="person.importo" name="price" placeholder="Importo"  ></ion-input>
+         </ion-item>
+         <ion-item no-padding>
+               
+            <ion-input type="text" [(ngModel)]="person.email" name="email" placeholder="email"  ></ion-input>
+        </ion-item>
+         <ion-item no-padding>
+               
+          <ion-item>
+            <ion-label>TIPO PREVENDITA</ion-label>
+            <ion-select placeholder="Tipo Prevendita" >
+              <ion-select-option value="1">CENA</ion-select-option>
+              <ion-select-option value="2">DOPOCENA</ion-select-option>
+            </ion-select>
+          </ion-item>
+       </ion-item>
+         
+          <ion-button type="submit" expand="block" style="--background: rgb(49, 128, 219)!important;--background-activated: rgb(49, 128, 219); --background-hover:rgb(49, 128, 219);--background-focused:rgb(49, 128, 219);">INSERISCI PREVENDITA</ion-button>
+ 
+        </form>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
