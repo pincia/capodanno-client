@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
   cssClass: string;
-  primaryColor='#44bbec';
+  primaryColor='#111111';
   secondryColor = '#0163fc';
   fullWhiteLogo = "assets/images/logo.png";
+  dynamicColor="#111111"
   constructor() { }
 
   ngOnInit() {
@@ -30,6 +31,6 @@ export class HomePage implements OnInit {
     return { background: this.primaryColor };
   }
   getFontstyle() {
-    return { color: this.secondryColor };
+    return { color: '#111111' };
   }
 }

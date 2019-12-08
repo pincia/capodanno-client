@@ -1,12 +1,49 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar style="--background: #111111;color:#cda434">
       <ion-buttons slot="start">
           <ion-menu-button class="menuIcon"></ion-menu-button>
         </ion-buttons>
-    <ion-title>verifica</ion-title>
+        <ion-title >VERIFICA PREVENDITA</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content style="text-align: center">
+    <ion-grid>
+        <ion-row>
+          <ion-col size="12" class="align">
+             
+                <ion-item no-padding>
+            
+                    <ion-label>{{person.nome}}</ion-label>
+                </ion-item>
+                <ion-item no-padding>
+                   
+                    <ion-label>{{person.cognome}}</ion-label>
+              </ion-item>
+              <ion-item no-padding>
+                   
+                  <ion-label>IMPORTO VERSATO: {{person.importo}}€</ion-label>
+             </ion-item>
+             <ion-item no-padding>
+                   
+                <ion-label>{{person.email}}</ion-label>
+            </ion-item>
+          
+                
+              <ion-item>
+                <ion-label>TIPO PREVENDITA:<b> {{person.tipo==1?'CENA':'DOPOCENA'}}</b></ion-label>
+              
+              </ion-item>
+              <ion-item>
+                  <ion-label><b> {{person.confermato==0?'NON CONFERMATO':'CONFERMATO'}}</b></ion-label>  <ion-button *ngIf="person.confermato==0" color="medium" color="danger" (click)="conferma()">CONFERMA PRESENZA</ion-button>
+                
+                </ion-item>
+              <div style="height: 100px">
 
+                </div>
+             
+          </ion-col>
+        </ion-row>
+        </ion-grid>
+  <ion-button color="large" expand="block" color="primary" (click)="scan()">SCAN</ion-button>
 </ion-content>

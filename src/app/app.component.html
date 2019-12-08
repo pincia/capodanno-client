@@ -3,20 +3,21 @@
     <ion-header>
       <ion-toolbar>
         <ion-title>MENU</ion-title>
+        <ion-icon (click)="toggleMenu()" style="font-size: 30px;margin: 0 10px" name="home" slot="end" routerLink="home" routerDirection="forward"></ion-icon>
       </ion-toolbar>
     </ion-header>
     <ion-content class = "menu">
-      <ion-item  style="--background:transparent;color: black;" button  routerLink="inserimento" routerDirection="forward"
+      <ion-item (click)="toggleMenu()"  style="--background:transparent;color: black;" button  routerLink="inserimento" routerDirection="forward"
       routerLinkActive="active" >
         <ion-icon name="add" slot="start" style="color: black"></ion-icon>
         <ion-label>INSERIMENTO PREVENDITA</ion-label>
       </ion-item>
-      <ion-item  style="--background:transparent;color: black;" button  routerLink="elenco" routerDirection="forward"
+      <ion-item (click)="toggleMenu()"  style="--background:transparent;color: black;" button  routerLink="elenco" routerDirection="forward"
       routerLinkActive="active">
         <ion-icon name="list" slot="start" style="color: black"></ion-icon>
         <ion-label>ELENCO PREVENDITE</ion-label>
       </ion-item>
-      <ion-item  style="--background:transparent;color: black;" button  routerLink="verifica" routerDirection="forward"
+      <ion-item (click)="toggleMenu()"  style="--background:transparent;color: black;" button  routerLink="verifica" routerDirection="forward"
       routerLinkActive="active">
         <ion-icon name="locate" slot="start" style="color: black"></ion-icon>
         <ion-label>VERIFICA PREVENDITA</ion-label>

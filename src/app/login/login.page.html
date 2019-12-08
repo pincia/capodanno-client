@@ -8,11 +8,13 @@
                 <ion-input type="text" [(ngModel)]="user.id" name="user" placeholder="Nome Utente "  ></ion-input>
             </ion-item>
               <ion-item no-padding>
-                  <ion-icon name="person"></ion-icon>
-                  <ion-input type="text" [(ngModel)]="user.password" name="user" placeholder="Pasword"  ></ion-input>
+                  <ion-icon name="lock"></ion-icon>
+                  <ion-input type="password" [(ngModel)]="user.password" name="user" placeholder="Pasword"  ></ion-input>
               </ion-item>
-         
-          <ion-button type="submit" expand="block" style="--background: rgb(49, 128, 219)!important;--background-activated: rgb(49, 128, 219); --background-hover:rgb(49, 128, 219);--background-focused:rgb(49, 128, 219);">Login</ion-button>
+         <div style="height: 60px">
+
+         </div>
+          <ion-button type="submit" expand="block" color="primary">Login</ion-button>
  
         </form>
 

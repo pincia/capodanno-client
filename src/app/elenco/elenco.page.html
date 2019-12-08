@@ -1,12 +1,35 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar style="--background: #111111;color:#cda434">
       <ion-buttons slot="start">
           <ion-menu-button class="menuIcon"></ion-menu-button>
         </ion-buttons>
-    <ion-title>elenco</ion-title>
+        <ion-title>PREVENDITE VENDUTE</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content no-padding no-margin>
 
+    <ion-card  style="width: 100%;--background: white;margin:0px 10px;"  *ngFor="let ticket of tickets; let i= index;">
+
+    <ion-grid style="width:100%" >
+      <ion-row >
+          <ion-col size="2" style="text-align: center;font-size: 20px;">
+              {{ticket.id}}
+            </ion-col>
+        <ion-col size="4" style="text-align: center;">
+          {{ticket.nome}}
+          <br>
+          {{ticket.cognome}}
+        </ion-col>
+        <ion-col size="2" style="text-align: center;font-size: 20px;">
+          {{ticket.importo}}€
+        </ion-col>
+        <ion-col size="4" style="text-align: center;font-size: 28px;">
+          <ion-icon (click)="sendmail(ticket)" name="mail" style="color:blue;margin:0px 10px;"></ion-icon>
+          <ion-icon (click)="delete(ticket)" name="close"  style="color:red;margin:0px 10px;"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </ion-card>
+  
 </ion-content>

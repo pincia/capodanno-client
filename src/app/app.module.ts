@@ -9,18 +9,27 @@ import { HttpClient} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FormsModule,  HttpClientModule,  ReactiveFormsModule],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(),
+     AppRoutingModule,
+     FormsModule, 
+      HttpClientModule, 
+      FormsModule, 
+      BrowserModule,
+      
+      ReactiveFormsModule],
   providers: [
     StatusBar,
     SplashScreen,
     HttpClientModule,
-    FormBuilder,
+    BarcodeScanner,
     HttpClient,
-   
+ 
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
