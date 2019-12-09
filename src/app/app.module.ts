@@ -10,10 +10,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { IonicStorageModule } from '@ionic/storage';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
+    IonicStorageModule.forRoot(),
     BrowserModule, 
     IonicModule.forRoot(),
      AppRoutingModule,

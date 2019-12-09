@@ -24,7 +24,7 @@ interval:any;
     private http:HttpClient) {
 console.log(environment.url+"prevendite")
 
-this.interval = setInterval(() => { this.fetchData() }, 2000);
+
     
    this.fetchData()
    }

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ToastController, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-inserimento',
   templateUrl: './inserimento.page.html',
@@ -18,12 +19,17 @@ private selectedItem;
 private itemsArray;
 private insertForm: FormGroup;
 public displaySpinner:string;
+private user_id;
 primaryColor = "#111111"
+disableButton;
+
+
   constructor(private formBuilder: FormBuilder,
     private toastController: ToastController,
     private router:Router,
     private navController:NavController,
     private reactive:ReactiveFormsModule,
+    private storage:Storage,
     private http:HttpClient) { 
       this.itemsArray=[
         {
@@ -41,6 +47,12 @@ primaryColor = "#111111"
       surname: ['',Validators.required],
       price:['',Validators.required]
     });
+    this.storage.get("user_id").then(res => {
+      if(res){
+              this.user_id = res;
+        }
+      })
+
   }
 
   ngOnInit() {
@@ -62,7 +74,7 @@ primaryColor = "#111111"
    
     
     
-    let person = {"nome": name, "cognome": surname,"importo":price, "email": email,"id_utente":1,"tipo":1};
+    let person = {"nome": name, "cognome": surname,"importo":price, "email": email,"id_utente":""+ this.user_id,"tipo":1};
     console.log(person);
      this.http.post(environment.url+"creaprevendita", person )
     .subscribe(data => {
@@ -72,6 +84,7 @@ primaryColor = "#111111"
       this.navController.navigateForward("/elenco") 
      }, error => {
       this.presentToast("PREVENDITA NON INSERITA");
+      this.disableButton = false;
       this.insertForm.reset();
  
     });
@@ -88,4 +101,7 @@ primaryColor = "#111111"
   getHeaderStyle() {
     return { background: this.primaryColor, color: '#cda434' };
   }
+  truthClick() {
+   this.disableButton = true;
+    }
 }

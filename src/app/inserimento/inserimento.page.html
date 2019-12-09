@@ -41,7 +41,7 @@
          <div style="height:50px">
 
          </div>
-          <ion-button type="submit" expand="block"color="primary">INSERISCI PREVENDITA</ion-button>
+          <ion-button (click)="truthClick()" [disabled]="disableButton" type="submit" expand="block"color="primary">INSERISCI PREVENDITA</ion-button>
  
         </form>
 
