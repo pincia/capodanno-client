@@ -79,9 +79,12 @@ disableButton;
      this.http.post(environment.url+"creaprevendita", person )
     .subscribe(data => {
   
-      this.insertForm.reset();
+   
       this.presentToast("PREVENDITA INSERITA CORRETTAMENTE");
       this.navController.navigateForward("/elenco") 
+      this.disableButton = false;
+      this.insertForm.reset();
+ 
      }, error => {
       this.presentToast("PREVENDITA NON INSERITA");
       this.disableButton = false;

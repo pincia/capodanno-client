@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 export class LoginPage implements OnInit {
   private loginForm: FormGroup;
   public displaySpinner:string;
+  private disableButton;
   private users;
   todo = {}
   user = {}
@@ -24,7 +25,7 @@ export class LoginPage implements OnInit {
     private storage:Storage,
     public events: Events
     ) { 
-    console.log("LOGIN CONSTRUCTOR");
+    this.disableButton=false;
     this.displaySpinner="none";
     this.loginForm = this.formBuilder.group({
       id: ['', Validators.required],
@@ -96,9 +97,12 @@ loginTest(){
   this.router.navigate(['/home']);
   
 }
-
+truthClick() {
+  this.disableButton = true;
+   }
 
 login(){
+  this.displaySpinner = "block";
   let user = {
     "email":this.user['id'],
     "password" :""+this.user['password']
@@ -106,8 +110,9 @@ login(){
  
      this.http.post(environment.url+"auth/login", user )
     .subscribe(data => {
-
-  this.presentToast("LOGIN EFFETTUATO CON SUCCESSO")
+  this.disableButton = false;
+  this.displaySpinner = "none";
+  this.presentToast("LOGIN EFFETTUATO CON SUCCESSO")                              
   this.events.publish('utenteloggato', ''+this.user['id']);
   this.storage.set("username", this.user['id']).then(
     () => {
@@ -123,8 +128,10 @@ login(){
   );
   this.router.navigate(['/home']);
      }, error => {
+      this.disableButton = false;
+      this.displaySpinner = "none";
       this.presentToast("LOGIN ERRATO")
-
+     
     });
 }
 }

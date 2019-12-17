@@ -12,7 +12,7 @@ import { AlertController } from '@ionic/angular';
 export class VerificaPage implements OnInit {
   primaryColor="#111111"
   person:any;
-
+  public displaySpinner:string;
   constructor(
     private barcodeScanner: BarcodeScanner,
     private http:HttpClient,
@@ -20,7 +20,9 @@ export class VerificaPage implements OnInit {
     public alertController: AlertController,
     ) { 
         this.person={}
+        
           this.scan();
+      
   }
   ngOnInit() {
   }
@@ -72,16 +74,35 @@ async presentToast(message) {
   scan(){
     this.barcodeScanner.scan().then(barcodeData => {
       console.log('Barcode data', barcodeData);
+      this.displaySpinner="block";
       this.http.get(environment.url+"prevendita/"+ barcodeData['text'])
       .subscribe(data => {
-   this.person=data;
+          this.person=data;
+          this.displaySpinner="none";
+        
+          console.log(data)
+          if (data==null){
+            this. presentToast("CORRISPONDENZA NON TROVATA")
+            this.displaySpinner="none";
+            this.person={
+              nome: "",
+              cognome: "",
+              importo: "",
+              email: "",
+              confermato: 0
+            }
+          }
+        
         console.log(data);
        }, error => {
-      
-        console.log(error);
+        console.log("PASStO DI QUI  2")
+        this.displaySpinner="none";
+    
       });
      }).catch(err => {
-         console.log('Error', err);
+   
+      this.displaySpinner="none";
+   
      });
   }
 }

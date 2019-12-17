@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ElencoPage implements OnInit {
   private tickets;
+  public displaySpinner:string;
   primaryColor = "#111111"
 interval:any;
   constructor(private formBuilder: FormBuilder,
@@ -22,8 +23,8 @@ interval:any;
     
     private reactive:ReactiveFormsModule,
     private http:HttpClient) {
-console.log(environment.url+"prevendite")
 
+this.displaySpinner="block";
 
     
    this.fetchData()
@@ -43,6 +44,7 @@ console.log(environment.url+"prevendite")
     this.http.get(environment.url+"prevendite" )
     .subscribe(data => {
   this.tickets=data;
+  this.displaySpinner = "none";
       console.log(data);
      }, error => {
     

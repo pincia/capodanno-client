@@ -14,7 +14,7 @@
          <div style="height: 60px">
 
          </div>
-          <ion-button type="submit" expand="block" color="primary">Login</ion-button>
+          <ion-button (click)="truthClick()" [disabled]="disableButton"  type="submit" expand="block" color="primary">Login</ion-button>
  
         </form>
 

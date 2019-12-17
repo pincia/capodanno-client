@@ -46,4 +46,7 @@
         </ion-row>
         </ion-grid>
   <ion-button color="large" expand="block" color="primary" (click)="scan()">SCAN</ion-button>
+  <ion-fab vertical="center" horizontal="center" slot="fixed">
+      <ion-spinner [style.display]="displaySpinner" name="crescent"></ion-spinner>
+    </ion-fab>
 </ion-content>
