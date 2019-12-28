@@ -70,11 +70,10 @@ disableButton;
     var price = parseInt(this.person['importo'])
     var email = this.person['email']
     var tipo =this.selectedItem
+    var persone = this.person['persone']
     
    
-    
-    
-    let person = {"nome": name, "cognome": surname,"importo":price, "email": email,"id_utente":""+ this.user_id,"tipo":1};
+    let person = {"nome": name, "cognome": surname,"persone":persone, "importo":price, "email": email,"id_utente":""+ this.user_id,"tipo":1};
     console.log(person);
      this.http.post(environment.url+"creaprevendita", person )
     .subscribe(data => {

@@ -87,6 +87,7 @@ async presentToast(message) {
             this.person={
               nome: "",
               cognome: "",
+              persone:"",
               importo: "",
               email: "",
               confermato: 0

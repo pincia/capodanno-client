@@ -8,18 +8,39 @@
 </ion-header>
 
 <ion-content no-padding no-margin>
+  <ion-grid style="width:100%" >
+    <ion-row >
+      <ion-col size="1" style="text-align: center;font-size: 16px;">
+       ID
+        </ion-col>
+    <ion-col size="4" style="text-align: center;font-size: 16px;">
+    NOME
+    
+    </ion-col>
+    <ion-col size="1" style="text-align: center;font-size: 14px;">
+    N°
+    </ion-col>
+    <ion-col size="2" style="text-align: center;font-size: 14px;">
+      €
+    </ion-col>
+    <ion-col size="4" style="text-align: center;font-size: 14px;">
+     AZIONI
+    </ion-col>
+  </ion-row></ion-grid>
+  <ion-card  style="width: 100%;--background: white;margin:0px 10px;"  *ngFor="let ticket of tickets; let i= index;">
 
-    <ion-card  style="width: 100%;--background: white;margin:0px 10px;"  *ngFor="let ticket of tickets; let i= index;">
-
-    <ion-grid style="width:100%" >
+  <ion-grid>
       <ion-row >
-          <ion-col size="2" style="text-align: center;font-size: 20px;">
+          <ion-col size="1" style="text-align: center;font-size: 16px;">
               {{ticket.id}}
             </ion-col>
         <ion-col size="4" style="text-align: center;">
           {{ticket.nome}}
           <br>
           {{ticket.cognome}}
+        </ion-col>
+        <ion-col size="1" style="text-align: center;font-size: 17px;">
+          x{{ticket.persone}}
         </ion-col>
         <ion-col size="2" style="text-align: center;font-size: 20px;">
           {{ticket.importo}}€
