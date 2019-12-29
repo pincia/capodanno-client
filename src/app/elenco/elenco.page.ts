@@ -15,6 +15,8 @@ export class ElencoPage implements OnInit {
   public displaySpinner:string;
   primaryColor = "#111111"
 interval:any;
+  public persone;
+  public soldi_totali;
   constructor(private formBuilder: FormBuilder,
     private toastController: ToastController,
     private router:Router,
@@ -44,6 +46,16 @@ this.displaySpinner="block";
     this.http.get(environment.url+"prevendite" )
     .subscribe(data => {
   this.tickets=data;
+  let sum = 0;
+  let soldi = 0;
+  for (let ticket of this.tickets) {
+    soldi+=ticket.importo;
+    sum+=ticket.persone;
+  }
+  this.soldi_totali=soldi
+  this.persone = sum
+  console.log("SOMMA "+this.soldi_totali); 
+  console.log("PERSONE "+this.persone);      
   this.displaySpinner = "none";
       console.log(data);
      }, error => {

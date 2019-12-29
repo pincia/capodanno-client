@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ToastController } from '@ionic/angular';
+import { ToastController, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { Events } from '@ionic/angular';
@@ -23,6 +23,7 @@ export class LoginPage implements OnInit {
     private router:Router,
     private http:HttpClient,
     private storage:Storage,
+    public navCtrl:NavController,
     public events: Events
     ) { 
     this.disableButton=false;
@@ -126,7 +127,11 @@ login(){
     },
     error => console.error('Error storing authtoken item', error)
   );
-  this.router.navigate(['/home']);
+
+  //this.router.navigate(['/home']);
+
+this.navCtrl.navigateRoot('/home');
+
      }, error => {
       this.disableButton = false;
       this.displaySpinner = "none";
