@@ -38,7 +38,7 @@
   <ion-card  style="width: 100%;--background: white;margin:0px 10px;"  *ngFor="let ticket of tickets; let i= index;">
 
   <ion-grid>
-      <ion-row >
+      <ion-row  [ngClass]="ticket.confermato==1?'confermato':'nonconfermato'">
           <ion-col size="1" style="text-align: center;font-size: 16px;">
               {{ticket.id}}
             </ion-col>
